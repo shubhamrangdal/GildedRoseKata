@@ -10,10 +10,18 @@ public class AgedBrie implements UpdateQualityInterface {
 
     @Override
     public int updateQuality(Item item) {
-
-        item.sellIn--;
+        daysDecrement(item);
         checkQuality(item);
         return item.quality;
+    }
+
+    private void daysDecrement(Item item) {
+        if(item.sellIn >=0)
+            item.sellIn--;
+        else{
+            item.sellIn=0;
+            item.quality -=2;
+        }
     }
 
     private void checkQuality(Item item) {
@@ -28,6 +36,7 @@ public class AgedBrie implements UpdateQualityInterface {
         Item item[] = new Item[]{new Item("Aged Brie Item 1 ", 3, 2),
                 new Item("Aged Brie Item 2 ", 2, 3),
                 new Item("Aged Brie Item 3 ", 5, 4)};
+        System.out.println("  Day 1  ");
         updateAndPrint(item);
     }
 

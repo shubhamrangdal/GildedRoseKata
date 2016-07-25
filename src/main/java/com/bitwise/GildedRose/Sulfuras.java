@@ -19,6 +19,7 @@ public class Sulfuras implements UpdateQualityInterface {
         Item item[]= new Item[]{new Item("Sulfuras Item 1 ", 8, 80),
                 new Item("Sulfuras Item 2 ", 5, 80),
                 new Item("Sulfuras Item 3 ", 15, 80)};
+        System.out.println("  Day 1  ");
         updateAndPrint(item);
     }
 

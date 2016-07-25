@@ -15,15 +15,24 @@ public class BackstagePasses implements UpdateQualityInterface {
              item.quality++;
         if(item.sellIn>50)
             item.quality=50;
-        item.sellIn--;
+        daysDecrement(item);
         return item.quality;
     }
 
+    private void daysDecrement(Item item) {
+        if(item.sellIn >=0)
+            item.sellIn--;
+        else{
+            item.sellIn=0;
+            item.quality -=2;
+        }
+    }
     @Override
     public void addItem() {
         Item item[]= new Item[]{new Item("Backstage Passes Item 1 ", 4, 20),
                 new Item("Backstage Passes Item 2 ", 9, 30),
                 new Item("Backstage Passes Item 3 ", 16, 40)};
+        System.out.println("  Day 1  ");
         updateAndPrint(item);
     }
 
