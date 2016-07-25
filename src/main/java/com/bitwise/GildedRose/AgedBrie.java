@@ -16,16 +16,16 @@ public class AgedBrie implements UpdateQualityInterface {
     }
 
     private void daysDecrement(Item item) {
-        if(item.sellIn >=0)
+        if (item.sellIn >= 0)
             item.sellIn--;
-        else{
-            item.sellIn=0;
-            item.quality -=2;
+        else {
+            item.sellIn = 0;
+            item.quality -= 2;
         }
     }
 
     private void checkQuality(Item item) {
-        if (item.quality <50)
+        if (item.quality < 50)
             item.quality++;
         else
             throw new GildedRoseMainClass.QualityShouldNotBeGreaterThan50eException();

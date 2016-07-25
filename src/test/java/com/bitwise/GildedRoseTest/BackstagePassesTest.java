@@ -9,29 +9,38 @@ import org.junit.Test;
  */
 public class BackstagePassesTest {
     @Test
-    public void QualityShouldBeDecreasedBy1()
+    public void QualityShouldBeIncreasedBy1()
     {
-        Item item=new Item("BackstagePasses",17,50);
+        //given
+        Item item=new Item("BackstagePasses",17,23);
         BackstagePasses backstagePasses = new BackstagePasses();
+        //when
         int i= backstagePasses.updateQuality(item);
-        Assert.assertEquals(49,i);
+        //then
+        Assert.assertEquals(24,i);
     }
 
     @Test
-    public void itShouldDecreaseQualityBy3IfSellInisLessThan5()
+    public void itShouldINcreaseQualityBy3IfSellInisLessThan5()
     {
-        Item item=new Item("BackstagePasses",5,50);
+        //given
+        Item item=new Item("BackstagePasses",5,34);
         BackstagePasses backstagePasses = new BackstagePasses();
+        //when
         int i= backstagePasses.updateQuality(item);
-        Assert.assertEquals(47,i);
+        //then
+        Assert.assertEquals(37,i);
     }
 
     @Test
     public void itShouldDecreaseQualityBy2IfSellInisLessThan10()
     {
-        Item item=new Item("BackstagePasses",8,50);
+        //given
+        Item item=new Item("BackstagePasses",8,23);
         BackstagePasses backstagePasses = new BackstagePasses();
+        //when
         int i= backstagePasses.updateQuality(item);
-        Assert.assertEquals(48,i);
+        //then
+        Assert.assertEquals(25,i);
     }
 }
