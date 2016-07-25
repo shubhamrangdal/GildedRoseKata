@@ -9,7 +9,7 @@ import org.junit.Test;
  */
 public class BackstagePassesTest {
     @Test
-    public void BackstagePassesQualityTest()
+    public void QualityShouldBeDecreasedBy1()
     {
         Item item=new Item("BackstagePasses",17,50);
         BackstagePasses backstagePasses = new BackstagePasses();

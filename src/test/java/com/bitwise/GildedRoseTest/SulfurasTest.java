@@ -24,18 +24,18 @@ public class SulfurasTest {
     @Test
     public void itemNeverBeSold()
     {
-        Item item=new Item("Sulfuras",0,79);
+        Item item=new Item("Sulfuras",0,80);
         Sulfuras sulfuras= new Sulfuras();
         int i= sulfuras.updateQuality(item);
-        Assert.assertFalse(item.sellIn!=0);
+        Assert.assertEquals(0,item.sellIn);
     }
 
-    @Test//(expected = Sulfuras.QualityMustBe80Exception.class)
+    @Test(expected = Sulfuras.QualityMustBe80Exception.class)
     public void QualityMustBe80ForSulfuras()
     {
         Item item=new Item("Sulfuras",0,8);
         Sulfuras sulfuras= new Sulfuras();
         int i= sulfuras.updateQuality(item);
-        Assert.assertFalse(item.quality==80);
+
     }
 }

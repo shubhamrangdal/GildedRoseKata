@@ -5,23 +5,30 @@ package com.bitwise.GildedRose;
  */
 public class AgedBrie implements UpdateQualityInterface {
 
-    public AgedBrie(){    }
+    public AgedBrie() {
+    }
+
     @Override
     public int updateQuality(Item item) {
 
         item.sellIn--;
-        if(!(item.quality==50))
-            item.quality++;
-
+        checkQuality(item);
         return item.quality;
+    }
+
+    private void checkQuality(Item item) {
+        if (item.quality <50)
+            item.quality++;
+        else
+            throw new GildedRoseMainClass.QualityShouldNotBeGreaterThan50eException();
     }
 
     @Override
     public void addItem() {
-        Item item[]= new Item[]{new Item("Aged Brie Item 1 ", 3, 2),
-                     new Item("Aged Brie Item 2 ", 2, 3),
-                     new Item("Aged Brie Item 3 ", 5, 4)};
-       updateAndPrint(item);
+        Item item[] = new Item[]{new Item("Aged Brie Item 1 ", 3, 2),
+                new Item("Aged Brie Item 2 ", 2, 3),
+                new Item("Aged Brie Item 3 ", 5, 4)};
+        updateAndPrint(item);
     }
 
     public void updateAndPrint(Item[] item) {
@@ -30,7 +37,6 @@ public class AgedBrie implements UpdateQualityInterface {
             System.out.println(items);
         }
     }
-
 
 
     public class QualityShouldNotBeDecreasesInAgedBrie extends RuntimeException {

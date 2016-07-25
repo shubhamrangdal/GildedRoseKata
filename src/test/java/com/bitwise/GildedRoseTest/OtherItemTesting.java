@@ -20,12 +20,13 @@ public class OtherItemTesting  {
     }
 
     @Test
-    public  void  QualityShouldBeIncreases()
+    public  void  QualityShouldNotBeIncreases()
     {
 
-        Item item=new Item("Other Items",5,50);
+        Item item=new Item("Other Items",5,32);
+        int actualquality=item.quality;
         OtherItems otherItems = new OtherItems();
         int i= otherItems.updateQuality(item);
-        Assert.assertEquals(49,i);
+        Assert.assertFalse(actualquality==i);
     }
 }

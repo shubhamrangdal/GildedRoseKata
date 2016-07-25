@@ -7,17 +7,23 @@ public class OtherItems implements UpdateQualityInterface {
     @Override
     public int updateQuality(Item item) {
         item.sellIn--;
-
-        item.quality--;
+        checkQuality(item);
 
         return item.quality;
     }
 
+    private void checkQuality(Item item) {
+        if (item.quality > 0)
+            item.quality--;
+        else
+            throw new GildedRoseMainClass.QualityShouldNotBeNegativeException();
+    }
+
     @Override
     public void addItem() {
-        Item item[]={new Item("Other Items Item 1 ",8,12),
-                    new Item("Other Items Item 2 ",5,10),
-                    new Item("Other Items Item 3 ",15,30)};
+        Item item[] = {new Item("Other Items Item 1 ", 8, 12),
+                new Item("Other Items Item 2 ", 5, 10),
+                new Item("Other Items Item 3 ", 15, 30)};
         updateAndPrint(item);
     }
 
@@ -29,4 +35,6 @@ public class OtherItems implements UpdateQualityInterface {
     }
 
 
+    public class QualityShouldNotBeIncreasesException extends RuntimeException {
+    }
 }

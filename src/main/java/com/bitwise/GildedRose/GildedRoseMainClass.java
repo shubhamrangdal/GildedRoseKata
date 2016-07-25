@@ -3,7 +3,7 @@ package com.bitwise.GildedRose;
 /**
  * Created by Shubham on 23/07/2016.
  */
-public class Quality {
+public class GildedRoseMainClass {
     public static int SellIn;
     public static int quality;
 
@@ -14,10 +14,10 @@ public class Quality {
             throw new QualityShouldNotBeGreaterThan50eException();
     }
 
-    public class QualityShouldNotBeNegativeException  extends RuntimeException{
+    public static class QualityShouldNotBeNegativeException  extends RuntimeException{
     }
 
-    public class QualityShouldNotBeGreaterThan50eException extends RuntimeException{
+    public static class QualityShouldNotBeGreaterThan50eException extends RuntimeException{
     }
     public static void main(String []args) {
         FactoryQuality factoryQuality=new FactoryQuality();

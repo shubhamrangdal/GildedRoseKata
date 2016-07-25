@@ -26,5 +26,11 @@ public class AgedBriesTest {
         Assert.assertFalse(item.quality==4);
     }
 
-
+    @Test(expected= GildedRoseMainClass.QualityShouldNotBeGreaterThan50eException.class)
+    public void QualityShouldNotBeGreaterThan50()
+    {
+         Item item=new Item("Aged Brie",9,51);
+        AgedBrie agedBrie=new AgedBrie();
+        int i= agedBrie.updateQuality(item);
+    }
 }
