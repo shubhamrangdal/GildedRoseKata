@@ -13,8 +13,8 @@ public class BackstagePasses implements UpdateQualityInterface {
              item.quality +=2;
         else
              item.quality++;
-        if(item.sellIn<0)
-            item.quality=0;
+        if(item.sellIn>50)
+            item.quality=50;
         item.sellIn--;
         return item.quality;
     }
